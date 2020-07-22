@@ -37,14 +37,8 @@ Keep the following things in mind.
 *   The targeted WebView debugging scenario is not supported.  	
 
 Use the script debugger in Visual Studio 2019 version 16.4 Preview 2 or later to debug your script in Visual Studio.  	
-
+ 
 Set up the debugger.  	
-
-* Verify the **JavaScript diagnostics** component in **Desktop development with C++** workload is installed.  	
-
-    1.  Navigate to **Apps & features** settings in Windows.  Search for it using the Windows task bar.  	
-    1.  Choose **Modify**.  	
-    1.  Verify the **Javascript diagnostics** and **Desktop Development in C++** checkboxes are selected.  	
 
 *   Verify the **JavaScript diagnostics** component in **Desktop development with C++** workload is installed.  
     
@@ -67,13 +61,6 @@ Set up the debugger.
         :::image type="complex" source="./media/enbjs.png" alt-text="Visual Studio JavaScript Debugger" lightbox="/media/enbjs.png":::
            Visual Studio JavaScript Debugger  
         :::image-end:::  
-        
-<!--todo: Please update the image to use a red rectangle to outline the portion of the screen to highlight  -->  
-
-*   Enable WebView2 script debugging.  	
-    1.  Hover on your project, open the context menu \(right-click\), and select **Properties**.  	
-    1.  On **Configuration Properties**, select **Debugging**.  	
-    1.  On the **Debugger Type** property, search the the list of options, and select **JavaScript (WebView2)**.  	
 
 To Debug, you may complete the following actions.  
 
@@ -177,28 +164,7 @@ There are 5 basic steps for debugging within VSCode:
         Visual Studio Code Debug Output  
         :::image-end:::
 
-For a list of other JavaScript Debugging features in Visual Studio Code, visit [this](https://github.com/microsoft/vscode-js-debug/#whats-new)
-
-<!--todo:  add See also heading  -->  
-
-1.  Set Breakpoints  	
-    *   Open the script file and set the breakpoint where you want it.  	
-
-        > [!NOTE]	
-        > The JS/TS debug adapter does not do source path mapping.  You must open the exact same path associated with your WebView2.  	
-        	
-1.  Run Code  	
-    *   Select your appropriate build flavor and runtime environment and then start the local windows debugger.  	
-1.  View Debug Console  	
-    *   You application runs and the debugger connects after the first webview2 is created.  Any pending debug spew is displayed.  	
-        	
-        > [!NOTE]	
-        > This method of debugging is currently restricted to Win32 applications and Office add-ins.  	
-        	
-## Visual Studio Code  	
-You may use Visual Studio Code to debug scripts that run in WebView2 controls.  For more information, see [Microsoft Edge (Chromium) WebView Applications][GithubMicrosoftVscodeEdgeDebug2MainChromiumWebviewApplications].  	
-
-<!--todo:  add See also heading  -->  	
+For a list of other JavaScript Debugging features in Visual Studio Code, visit the [Visual Studio JS Adapter](https://github.com/microsoft/vscode-js-debug/#whats-new) Github Page.
 
 ## Getting in touch with the Microsoft Edge WebView team  	
 
