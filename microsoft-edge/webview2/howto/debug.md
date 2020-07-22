@@ -36,9 +36,12 @@ Keep the following things in mind.
 *   Visual Studio only supports debugging scripts when the app is launched from within Visual Studio.  \(Attaching a running process for debugging is not supported.\)  	
 *   The targeted WebView debugging scenario is not supported.  	
 
-Use the script debugger in Visual Studio 2019 version 16.4 Preview 2 or later to debug your script in Visual Studio.  	
- 
-Set up the debugger.  	
+> [!NOTE]
+> This method of debugging is currently restricted to Win32 applications and Office add-ins.  
+
+Use the script debugger in Visual Studio 2019 version 16.4 Preview 2 or later to debug your script in Visual Studio. 
+
+To Begin:
 
 *   Verify the **JavaScript diagnostics** component in **Desktop development with C++** workload is installed.  
     
@@ -62,7 +65,7 @@ Set up the debugger.
            Visual Studio JavaScript Debugger  
         :::image-end:::  
 
-To Debug, you may complete the following actions.  
+You are ready to debug! Now you may:
 
 1.  Set Breakpoints  
     *   Open the file you are trying to debug and set a breakpoint by clicking left on the line number.  
@@ -87,14 +90,10 @@ To Debug, you may complete the following actions.
             Visual Studio Code Debug Output  
         :::image-end:::
 
-        > [!NOTE]
-        > This method of debugging is currently restricted to Win32 applications and Office add-ins.  
+
         
 ## Visual Studio Code  
-
-You are all set up and ready to debug.  	
-
-
+  
 There are 5 basic steps for debugging within VSCode:
 
 1. **Install the debug adapter**
@@ -125,12 +124,12 @@ There are 5 basic steps for debugging within VSCode:
         Visual Studio Code Debug Output  
         :::image-end:::
 
-    1. Create Launch.json file with the following metadata: (This step is required to debug a WebView Control.)
+    1. Ensure you have a VSCode Launch.json file. If not create a Launch.json file with the following metadata: (This step is required to debug a WebView Control)
     
         ```csharp
         {
             "name": "Scenario 1: Script debugging (first) (old adapter)",  
-            "type": "edge",  
+            "type": "pwa-msedge”   
             "port": 9222, // Optional defaults to 9222  
             "request": "launch", // optionally “attach”  
             "runtimeExecutable": "E:/YourPath/YourApplication.exe",  
@@ -153,6 +152,8 @@ There are 5 basic steps for debugging within VSCode:
     > [!NOTE]
         >  VSCode does not do source mapping you so MUST ensure you have opened and set breakpoints in the same file path as the WebView will be using.  If the paths are not exact VSCode can’t resolve the breakpoint. 
 1. **Run code**
+    1. Select the launch configuration from the dropdown menu.
+    1. Start debugging by clicking the green run button.        
 
         :::image type="complex" source="./media/runvs.png" alt-text=" Visual Studio Code Debug Output" lightbox="/media/runvs.png":::
         Visual Studio Code Debug Output  
@@ -163,6 +164,14 @@ There are 5 basic steps for debugging within VSCode:
         :::image type="complex" source="./media/resultsvs.png" alt-text=" Visual Studio Code Debug Output" lightbox="/media/resultsvs.png":::
         Visual Studio Code Debug Output  
         :::image-end:::
+
+> [!NOTE]
+> If your application has more than one WebView hosted within it, connecting to the first created might not be what you need. To solve this, there is an "Advanced" mode that lets you select a targeted WebView to connect to.
+
+To turn on Advanced mode:
+* Change the useWebview configuration parameter to “Advanced” and add the urlFilter parameter. The value of the urlFilter is used as a string comparison parameter on the URL that each WebView is navigated to.  
+
+Congratulations, you have completed this guide.
 
 For a list of other JavaScript Debugging features in Visual Studio Code, visit the [Visual Studio JS Adapter](https://github.com/microsoft/vscode-js-debug/#whats-new) Github Page.
 
